@@ -9,7 +9,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet" />
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/J6Md3vO3Q8b8QITB1rj7lA2D2j7uX5n5K0v7y0h7CN8C4fQJgA0r5H7vC1v8L1rN9Z3G5x7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-wm">
@@ -25,7 +26,7 @@
 
       <form id="searchForm" class="searchbar" autocomplete="off">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input id="search" type="text" placeholder="Buscar serviços por nome (ex.: elétrica, manicure, encanador)…" />
+        <input id="q" type="text" placeholder="Buscar serviços por nome (ex.: elétrica, manicure, encanador)…" />
         <button class="btn" type="submit">Buscar</button>
       </form>
 
@@ -33,38 +34,140 @@
         <div class="select" title="Ordenar resultados">
           <select id="sort">
             <option value="relevance">Ordenar: Relevância</option>
-            <option value="preco-asc">Preço: menor → maior</option>
-            <option value="preco-desc">Preço: maior → menor</option>
+            <option value="price-asc">Preço: menor → maior</option>
+            <option value="price-desc">Preço: maior → menor</option>
+            <option value="rating">Avaliação</option>
+            <option value="pop">Popularidade</option>
           </select>
         </div>
         <div class="select" title="Filtrar por categoria">
           <select id="category">
             <option value="all">Todas as categorias</option>
-            <option value="Beleza">Beleza</option>
-            <option value="Saúde">Saúde</option>
-            <option value="Tecnologia">Tecnologia</option>
-            <option value="Casa">Casa</option>
-            <option value="Educação">Educação</option>
+          </select>
+        </div>
+        <div class="pill" title="Tema visual">
+          <i class="fa-solid fa-swatchbook"></i>
+          <select id="theme">
+            <option value="theme-wm">Tema WebStyle</option>
+            <option value="theme-light">Claro</option>
+            <option value="theme-hacker">Hacker</option>
+            <option value="">Dark Clássico</option>
           </select>
         </div>
       </div>
     </div>
   </header>
 
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="chip"><i class="fa-solid fa-location-dot"></i> Explorar serviços perto de você</div>
+        <h1>Encontre especialistas locais <span style="color:var(--brand)">com confiança</span> e transparência.</h1>
+        <p>Compare preços, avaliações e tempo de resposta. Filtre por categoria, ajuste o orçamento e favorite seus preferidos.</p>
+        <div class="badges">
+          <span class="chip"><i class="fa-solid fa-shield-halved"></i> Verificações básicas</span>
+          <span class="chip"><i class="fa-solid fa-clock"></i> Agendamento rápido</span>
+          <span class="chip"><i class="fa-solid fa-star"></i> Avaliações reais</span>
+          <span class="chip"><i class="fa-solid fa-mobile-screen"></i> 100% responsivo</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="stat">
+          <i class="fa-solid fa-bolt"></i>
+          <div>
+            <b>Busca inteligente</b>
+            <div class="muted">Relevância baseada em texto + popularidade</div>
+          </div>
+          <span class="chip">BETA</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-filter"></i>
+          <div>
+            <b>Filtros combináveis</b>
+            <div class="muted">Categoria + preço + ordenação</div>
+          </div>
+          <span class="chip">Pro</span>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-paintbrush"></i>
+          <div>
+            <b>Temas dinâmicos</b>
+            <div class="muted">Claro, Dark, Hacker e WebStyle</div>
+          </div>
+          <span class="chip">Novo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main class="wrap" style="margin-top:18px">
-    <section id="summary" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <div class="muted" id="count">Carregando resultados…</div>
-    </section>
-    <section id="cards" class="cards"></section>
-    <div id="empty" class="empty" style="display:none">
-      <i class="fa-regular fa-face-frown"></i>
-      <p>Nenhum serviço encontrado para os filtros/busca aplicados.</p>
+    <div class="grid">
+      <!-- Sidebar Filtros Extras -->
+      <aside class="sidebar">
+        <h3>Filtros</h3>
+        <div class="facet">
+          <div class="row"><b>Faixa de preço</b> <span id="priceValue" class="muted">até R$ 500</span></div>
+          <input id="price" class="range" type="range" min="50" max="2000" step="50" value="500" />
+        </div>
+        <div class="facet">
+          <div class="row"><b>Nota mínima</b> <span id="ratingValue" class="muted">4.0+</span></div>
+          <input id="rating" class="range" type="range" min="0" max="5" step="0.5" value="4" />
+        </div>
+        <div class="facet">
+          <div class="row"><b>Opções</b></div>
+          <label style="display:flex; gap:8px; align-items:center"><input type="checkbox" id="fast" /> <span>Atende hoje</span></label>
+          <label style="display:flex; gap:8px; align-items:center"><input type="checkbox" id="promo" /> <span>Com promoção</span></label>
+        </div>
+        <div class="facet">
+          <button id="clear" class="btn ghost" style="width:100%"><i class="fa-solid fa-rotate"></i> Limpar filtros</button>
+        </div>
+        <div class="divider"></div>
+        <div class="facet">
+          <h3>Favoritos</h3>
+          <div id="favList" class="muted" style="font-size:13px">Nenhum favorito ainda.</div>
+        </div>
+        <div class="divider"></div>
+        <div class="facet">
+          <h3>Sobre</h3>
+          <p class="muted" style="font-size:12.5px; line-height:1.6">
+            <b>Reflexão:</b> Marketplaces digitais transformam o consumo de serviços ao reduzir assimetrias de informação, 
+            padronizar ofertas, ampliar alcance e promover reputação via avaliações. A curadoria algorítmica e a experiência
+            móvel colocam o usuário no centro, permitindo decisões rápidas, comparáveis e transparentes.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Cards -->
+      <section>
+        <div id="summary" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div class="muted" id="count">Carregando resultados…</div>
+          <div class="muted" id="activeFilters"></div>
+        </div>
+        <div id="cards" class="cards"></div>
+        <div id="empty" class="empty" style="display:none">
+          <i class="fa-regular fa-face-frown"></i>
+          <p>Nenhum serviço encontrado para os filtros/busca aplicados.</p>
+        </div>
+      </section>
     </div>
   </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <b id="modalTitle"></b>
+        <button class="btn ghost" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Adicionado aos favoritos ✅</div>
 
   <footer>
     <div class="wrap">
       Feito com HTML, CSS e JS — Missão 4 • <b>MarketFinder</b> · Temas dinâmicos · Acessível e responsivo.
+      <br/>Código pronto para publicar no GitHub Pages / Replit / Vercel.
     </div>
   </footer>
 
