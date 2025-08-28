@@ -1,20 +1,20 @@
 // ====== Dados: catálogo inicial ======
     const services = [
-      { id:1, name:"Elétrica Residencial", desc:"Instalação de tomadas, disjuntores e revisão geral.", category:"Reformas", price:180, rating:4.6, reviews:122, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?q=80&w=1600&auto=format&fit=crop" },
-      { id:2, name:"Manicure & Nail Art", desc:"Cutilagem, esmaltação e designs autorais.", category:"Beleza", price:70, rating:4.8, reviews:340, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1622295021207-cc25c6cdc2b0?q=80&w=1600&auto=format&fit=crop" },
-      { id:3, name:"Aula Particular de Matemática", desc:"Refforço do básico ao avançado, ENEM e vestibulares.", category:"Educação", price:90, rating:4.9, reviews:87, fast:true, promo:false, city:"São José dos Pinhais", img:"https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1600&auto=format&fit=crop" },
-      { id:4, name:"Encanador 24h", desc:"Desentupimento, vazamentos e emergências.", category:"Reformas", price:220, rating:4.4, reviews:231, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1600&auto=format&fit=crop" },
-      { id:5, name:"Passeio e Pet Sitter", desc:"Passeios diários, alimentação e carinho garantido.", category:"Pets", price:55, rating:4.7, reviews:415, fast:false, promo:false, city:"Campina Grande do Sul", img:"https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1600&auto=format&fit=crop" },
-      { id:6, name:"Fotografia de Produtos", desc:"Fotos profissionais para e-commerce e catálogos.", category:"Criativo", price:350, rating:4.8, reviews:64, fast:false, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1600&auto=format&fit=crop" },
-      { id:7, name:"Montagem de Móveis", desc:"Rápido, organizado e sem stress.", category:"Reformas", price:140, rating:4.5, reviews:510, fast:true, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop" },
-      { id:8, name:"Design de Logotipo Express", desc:"Conceito, variações e guia rápido de uso.", category:"Criativo", price:420, rating:4.3, reviews:29, fast:true, promo:false, city:"Colombo", img:"https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop" },
-      { id:9, name:"Aula de Inglês Conversação", desc:"Foco em conversação com feedback em tempo real.", category:"Educação", price:120, rating:4.9, reviews:198, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop" },
-      { id:10, name:"Limpeza Pós-Obra", desc:"Time preparado e equipamentos completos.", category:"Casa", price:600, rating:4.2, reviews:67, fast:false, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1581579188871-45ea61f2a0c8?q=80&w=1600&auto=format&fit=crop" },
-      { id:11, name:"Personal Trainer", desc:"Treinos personalizados para resultados reais.", category:"Saúde", price:130, rating:4.7, reviews:154, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1600&auto=format&fit=crop" },
-      { id:12, name:"DJ para Eventos", desc:"Setlist sob medida e estrutura de som.", category:"Eventos", price:900, rating:4.6, reviews:45, fast:false, promo:false, city:"Pinhais", img:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop" },
-      { id:13, name:"Consultoria de Marketing", desc:"Diagnóstico e plano de ação em 7 dias.", category:"Negócios", price:1100, rating:4.8, reviews:26, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop" },
-      { id:14, name:"Streaming & Setup Gamer", desc:"Configuração OBS, overlays e otimização.", category:"Tecnologia", price:250, rating:4.9, reviews:73, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1538485399081-7191377e8241?q=80&w=1600&auto=format&fit=crop" },
-      { id:15, name:"Formatação de Notebook", desc:"Backup, otimização e antivírus.", category:"Tecnologia", price:120, rating:4.4, reviews:205, fast:true, promo:false, city:"Colombo", img:"https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" },
+      { id:1, name:"Elétrica Residencial", desc:"Instalação de tomadas, disjuntores e revisão geral.", category:"Reformas", price:180, rating:4.6, reviews:122, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop" },
+      { id:2, name:"Manicure & Nail Art", desc:"Cutilagem, esmaltação e designs autorais.", category:"Beleza", price:70, rating:4.8, reviews:340, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1633361084430-4c7b3a79396a?q=80&w=1600&auto=format&fit=crop" },
+      { id:3, name:"Aula Particular de Matemática", desc:"Reforço do básico ao avançado, ENEM e vestibulares.", category:"Educação", price:90, rating:4.9, reviews:87, fast:true, promo:false, city:"São José dos Pinhais", img:"https://images.unsplash.com/photo-1596495578065-640863d092de?q=80&w=1600&auto=format&fit=crop" },
+      { id:4, name:"Encanador 24h", desc:"Desentupimento, vazamentos e emergências.", category:"Reformas", price:220, rating:4.4, reviews:231, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1617103995364-13a83275b345?q=80&w=1600&auto=format&fit=crop" },
+      { id:5, name:"Passeio e Pet Sitter", desc:"Passeios diários, alimentação e carinho garantido.", category:"Pets", price:55, rating:4.7, reviews:415, fast:false, promo:false, city:"Campina Grande do Sul", img:"https://images.unsplash.com/photo-1591946614726-a4db25274a5b?q=80&w=1600&auto=format&fit=crop" },
+      { id:6, name:"Fotografia de Produtos", desc:"Fotos profissionais para e-commerce e catálogos.", category:"Criativo", price:350, rating:4.8, reviews:64, fast:false, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1616594418241-a4420310a0a5?q=80&w=1600&auto=format&fit=crop" },
+      { id:7, name:"Montagem de Móveis", desc:"Rápido, organizado e sem stress.", category:"Reformas", price:140, rating:4.5, reviews:510, fast:true, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=1600&auto=format&fit=crop" },
+      { id:8, name:"Design de Logotipo Express", desc:"Conceito, variações e guia rápido de uso.", category:"Criativo", price:420, rating:4.3, reviews:29, fast:true, promo:false, city:"Colombo", img:"https://images.unsplash.com/photo-1607553853185-7e8125338136?q=80&w=1600&auto=format&fit=crop" },
+      { id:9, name:"Aula de Inglês Conversação", desc:"Foco em conversação com feedback em tempo real.", category:"Educação", price:120, rating:4.9, reviews:198, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop" },
+      { id:10, name:"Limpeza Pós-Obra", desc:"Time preparado e equipamentos completos.", category:"Casa", price:600, rating:4.2, reviews:67, fast:false, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1599382825389-a4b64a443900?q=80&w=1600&auto=format&fit=crop" },
+      { id:11, name:"Personal Trainer", desc:"Treinos personalizados para resultados reais.", category:"Saúde", price:130, rating:4.7, reviews:154, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?q=80&w=1600&auto=format&fit=crop" },
+      { id:12, name:"DJ para Eventos", desc:"Setlist sob medida e estrutura de som.", category:"Eventos", price:900, rating:4.6, reviews:45, fast:false, promo:false, city:"Pinhais", img:"https://images.unsplash.com/photo-1496298195403-2c1810275185?q=80&w=1600&auto=format&fit=crop" },
+      { id:13, name:"Consultoria de Marketing", desc:"Diagnóstico e plano de ação em 7 dias.", category:"Negócios", price:1100, rating:4.8, reviews:26, fast:false, promo:false, city:"Curitiba", img:"https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1600&auto=format&fit=crop" },
+      { id:14, name:"Streaming & Setup Gamer", desc:"Configuração OBS, overlays e otimização.", category:"Tecnologia", price:250, rating:4.9, reviews:73, fast:true, promo:true, city:"Curitiba", img:"https://images.unsplash.com/photo-1598550463415-d9976dd3e923?q=80&w=1600&auto=format&fit=crop" },
+      { id:15, name:"Formatação de Notebook", desc:"Backup, otimização e antivírus.", category:"Tecnologia", price:120, rating:4.4, reviews:205, fast:true, promo:false, city:"Colombo", img:"https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1600&auto=format&fit=crop" },
     ];
 
     // ====== Estado ======
@@ -109,7 +109,7 @@
             <span><i class="fa-solid fa-location-dot"></i> ${s.city}</span>
             <span title="Avaliação">${stars(s.rating)} <b>${s.rating.toFixed(1)}</b> (${s.reviews})</span>
           </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px">
+          <div class="card-footer">
             <div class="price">
               <b>${currency(s.price)}</b>
               ${s.fast?'<span class="chip"><i class="fa-solid fa-bolt"></i> hoje</span>':''}
@@ -232,7 +232,7 @@
     $$('#clear').addEventListener('click', ()=>{ Object.assign(state, { q:'', category:'all', price:500, rating:4, fast:false, promo:false, sort:'relevance' });
       $$('#q').value=''; $$('#category').value='all'; $$('#price').value=500; $$('#priceValue').textContent='até R$ 500'; $$('#rating').value=4; $$('#ratingValue').textContent='4.0+'; $$('#fast').checked=false; $$('#promo').checked=false; $$('#sort').value='relevance'; filterSort(); });
 
-    $$('#theme').addEventListener('change', (e)=>{ state.theme = e.target.value || ''; applyTheme(); });
+    $$('#theme').addEventListener('change', (e)=>{ state.theme = e.target.value; applyTheme(); });
 
     // ====== Boot ======
     initCategories();
