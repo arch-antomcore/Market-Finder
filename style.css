@@ -10,13 +10,23 @@
       --chip:#1b1f2a;
       --radius: 18px;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
+      color-scheme: dark; /* ADICIONADO: Define o esquema de cores padrão como escuro */
     }
     /* Tema claro */
-    .theme-light{ --bg:#f8fafc; --card:#ffffff; --text:#0b1020; --muted:#586174; --brand:#cc0000; --stroke:#e6e9ef; --chip:#f2f4f8; }
+    .theme-light{
+        --bg:#f8fafc; --card:#ffffff; --text:#0b1020; --muted:#586174; --brand:#cc0000; --stroke:#e6e9ef; --chip:#f2f4f8;
+        color-scheme: light; /* ADICIONADO: Garante que os controles nativos fiquem claros neste tema */
+    }
     /* Tema Hacker (hacer) */
-    .theme-hacker{ --bg:#040b05; --card:#060f08; --text:#d2ffd9; --muted:#7fffb0; --brand:#00ff6a; --brand-2:#00ffc3; --stroke:#0c2613; --chip:#0b1f12; text-shadow:0 0 4px rgba(0,255,106,.25); }
+    .theme-hacker{
+        --bg:#040b05; --card:#060f08; --text:#d2ffd9; --muted:#7fffb0; --brand:#00ff6a; --brand-2:#00ffc3; --stroke:#0c2613; --chip:#0b1f12; text-shadow:0 0 4px rgba(0,255,106,.25);
+        color-scheme: dark; /* ADICIONADO: Garante que os controles nativos fiquem escuros neste tema */
+    }
     /* Tema WebMotors-like (apenas paleta/energia, não clone) */
-    .theme-wm{ --bg:#101114; --card:#14161a; --text:#f5f7fa; --muted:#aab2c0; --brand:#e6001f; --brand-2:#ffd166; --stroke:#1b1f26; --chip:#171a20; }
+    .theme-wm{
+        --bg:#101114; --card:#14161a; --text:#f5f7fa; --muted:#aab2c0; --brand:#e6001f; --brand-2:#ffd166; --stroke:#1b1f26; --chip:#171a20;
+        color-scheme: dark; /* ADICIONADO: Garante que os controles nativos fiquem escuros neste tema */
+    }
 
     *{ box-sizing:border-box }
     html,body{ height:100% }
