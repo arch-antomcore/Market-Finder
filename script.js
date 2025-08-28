@@ -98,7 +98,7 @@
       const el = document.createElement('article');
       el.className = 'card';
       el.innerHTML = `
-        <div class="thumb" style="background-image:url('${s.img}')">
+        <div class="thumb" style="background-image: linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.5)), url('${s.img}')">
           ${s.promo?`<span class='tag'>Promo</span>`:''}
           <button class="fav" aria-label="favorito" data-id="${s.id}"><i class="${state.favorites.has(s.id)?'fa-solid':'fa-regular'} fa-heart"></i></button>
         </div>
