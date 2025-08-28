@@ -1,170 +1,88 @@
-:root{
-  --bg: #101114;
-  --card: #14161a;
-  --text: #f5f7fa;
-  --muted: #aab2c0;
-  --brand: #e6001f;
-  --stroke: #1b1f26;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+// ====== ARRAY DE SERVIÇOS ======
+const services = [
+  { id:1, nome:"Corte de Cabelo", desc:"Corte moderno para todas as idades", categoria:"Beleza", preco:50, img:"https://images.unsplash.com/photo-1599947442386-09f6a4c6d05a?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
+  { id:2, nome:"Aula de Yoga", desc:"Sessões relaxantes para iniciantes", categoria:"Saúde", preco:35, img:"https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
+  { id:3, nome:"Reparo de Celular", desc:"Troca de tela e manutenção rápida", categoria:"Tecnologia", preco:120, img:"https://images.unsplash.com/photo-1581091012184-6c32f6f37e7e?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
+  { id:4, nome:"Serviço de Jardinagem", desc:"Cuidamos do seu jardim com carinho", categoria:"Casa", preco:80, img:"https://images.unsplash.com/photo-1590986609282-8941f8f8d718?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
+  { id:5, nome:"Aula de Inglês", desc:"Aprenda inglês de forma prática e divertida", categoria:"Educação", preco:100, img:"https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
+  { id:6, nome:"Manicure e Pedicure", desc:"Cuide das suas unhas com profissionais", categoria:"Beleza", preco:60, img:"https://images.unsplash.com/photo-1572371326355-ef0c70f9b1f6?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" }
+];
+
+// ====== ELEMENTOS ======
+const cardsContainer = document.querySelector("#cards");
+const categorySelect = document.querySelector("#category");
+const sortSelect = document.querySelector("#sort");
+const searchInput = document.querySelector("#search");
+const countLabel = document.querySelector("#count");
+const emptyDiv = document.querySelector("#empty");
+
+// ====== FUNÇÃO DE RENDER ======
+function renderServices(list) {
+  cardsContainer.innerHTML = "";
+
+  if(list.length === 0){
+    emptyDiv.style.display = "block";
+    countLabel.textContent = "0 resultados";
+    return;
+  } else {
+    emptyDiv.style.display = "none";
+    countLabel.textContent = `${list.length} serviços encontrados`;
+  }
+
+  list.forEach(s => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="thumb" style="background-image:url('${s.img}')">
+        <div class="tag">${s.categoria}</div>
+      </div>
+      <div class="body">
+        <div class="title">${s.nome}</div>
+        <div class="desc">${s.desc}</div>
+        <div class="meta">
+          <div class="price"><b>R$${s.preco}</b></div>
+          <div class="actions">
+            <button class="btn primary">Contratar</button>
+          </div>
+        </div>
+      </div>
+    `;
+    cardsContainer.appendChild(card);
+  });
 }
 
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:var(--bg);
-  color:var(--text);
+// ====== FUNÇÃO DE FILTRO ======
+function applyFilters() {
+  const category = categorySelect.value;
+  const sortOrder = sortSelect.value;
+  const searchTerm = searchInput.value.toLowerCase();
+
+  let filtered = [...services];
+
+  if(category !== "all"){
+    filtered = filtered.filter(s => s.categoria === category);
+  }
+
+  if(searchTerm){
+    filtered = filtered.filter(s => s.nome.toLowerCase().includes(searchTerm));
+  }
+
+  if(sortOrder === "price-asc") filtered.sort((a,b) => a.preco - b.preco);
+  if(sortOrder === "price-desc") filtered.sort((a,b) => b.preco - a.preco);
+
+  renderServices(filtered);
 }
 
-.topbar{
-  background:var(--card);
-  padding:16px;
-  border-bottom:1px solid var(--stroke);
-  position:sticky;
-  top:0;
-  z-index:50;
-}
+// ====== EVENTOS ======
+categorySelect.addEventListener("change", applyFilters);
+sortSelect.addEventListener("change", applyFilters);
+searchInput.addEventListener("input", applyFilters);
 
-.wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:16px;
-}
+// ====== PREVENIR SUBMISSÃO DO FORM ======
+document.querySelector("#searchForm").addEventListener("submit", e => {
+  e.preventDefault();
+  applyFilters();
+});
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:36px;
-  height:36px;
-  border-radius:10px;
-  display:grid;
-  place-items:center;
-  background:var(--brand);
-  color:#fff;
-  font-weight:900;
-}
-
-.searchbar{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  background:var(--card);
-  border:1px solid var(--stroke);
-  border-radius:999px;
-  padding:10px 14px;
-}
-
-.searchbar input{
-  flex:1;
-  background:transparent;
-  border:none;
-  outline:none;
-  color:var(--text);
-}
-
-.searchbar .btn{
-  background:var(--brand);
-  color:#fff;
-  border:none;
-  border-radius:999px;
-  padding:10px 16px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.controls{
-  display:flex;
-  gap:12px;
-}
-
-.select select{
-  background:#000;
-  color:#fff;
-  border:none;
-  padding:8px 10px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap:16px;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--stroke);
-  border-radius:var(--radius);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
-}
-
-.thumb{
-  height:160px;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-}
-
-.thumb .tag{
-  position:absolute;
-  left:10px;
-  top:10px;
-  background:var(--brand);
-  color:#fff;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.body{
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.title{
-  font-weight:800;
-}
-
-.desc{
-  font-size:13px;
-  color:var(--muted);
-  min-height:38px;
-}
-
-.meta{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.price b{
-  font-size:16px;
-}
-
-.actions button{
-  padding:6px 10px;
-  border-radius:8px;
-  border:none;
-  cursor:pointer;
-}
-
-.actions .primary{
-  background:var(--brand);
-  color:#fff;
-}
+// ====== INICIALIZAÇÃO ======
+renderServices(services);
