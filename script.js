@@ -34,7 +34,7 @@
     const $$ = (sel, root=document) => root.querySelector(sel);
     const $$$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-    const currency = n => n.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+    const currency = n => n.toLocaleString('pt-BR', { style:'currency', currency:'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
     const stars = n => {
       const full = Math.floor(n);
       const half = n - full >= .5;
