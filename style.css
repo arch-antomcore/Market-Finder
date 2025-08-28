@@ -1,130 +1,109 @@
 :root {
-    --bg: #0c0d0f;
-    --card: #13151a;
-    --text: #e8eaed;
-    --muted: #a6adbb;
-    --brand: #e50914;
-    --brand-2: #ffcf33;
-    --ok: #00c853;
-    --warn: #ffab00;
-    --bad: #ff5252;
-    --stroke: #1f2128;
+  --bg: #0c0d0f;
+  --card: #13151a;
+  --text: #e8eaed;
+  --muted: #a6adbb;
+  --brand: #e50914;
+  --brand-2: #ffcf33;
+  --ok: #00c853;
+  --warn: #ffab00;
+  --bad: #ff5252;
+  --stroke: #1f2228;
 }
 
-/* Corpo da página */
+/* Geral do site */
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Cards e containers principais */
-.card, .container {
-    background-color: var(--card);
-    color: var(--text);
-    border: 1px solid var(--stroke);
-    border-radius: 12px;
-    padding: 16px;
-    margin: 12px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Botões */
-button {
-    background-color: var(--brand);
-    color: var(--text);
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--brand-2);
-    color: var(--bg);
+/* Cartões */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 16px;
+  color: var(--text);
 }
 
 /* Links */
 a {
-    color: var(--brand-2);
-    text-decoration: none;
+  color: var(--brand);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  color: var(--brand-2);
+}
+
+/* Botões */
+button {
+  background-color: var(--brand);
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--brand-2);
+  color: var(--bg);
 }
 
 /* Inputs e selects */
 input, select {
-    background-color: var(--card);
-    color: var(--text);
-    border: 1px solid var(--stroke);
-    border-radius: 6px;
-    padding: 6px 10px;
+  background-color: var(--card);
+  color: var(--text);
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  padding: 8px;
 }
 
-input::placeholder {
-    color: var(--muted);
+/* Itens de lista */
+.list-item {
+  background-color: var(--card);
+  border: 1px solid var(--stroke);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: var(--text);
 }
 
-/* Dropdowns e modais específicos */
-.dropdown, .modal, .select-menu {
-    background-color: var(--card) !important;
-    color: var(--text) !important;
-    border: 1px solid var(--stroke);
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+.list-item:hover {
+  background-color: var(--brand-2);
+  color: var(--bg);
 }
 
-/* Itens dentro do dropdown/modal */
-.dropdown .item, .modal .item, .select-menu .item {
-    background-color: var(--card);
-    color: var(--text);
-    padding: 8px 12px;
-    cursor: pointer;
+/* Modais e dropdowns: CORRIGIDO */
+.modal, .dropdown, .select-menu {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
 }
 
-.dropdown .item:hover, .modal .item:hover, .select-menu .item:hover {
-    background-color: var(--brand-2);
-    color: var(--bg);
+/* Itens dentro das janelas */
+.modal .item, .dropdown .item, .select-menu .item {
+  background-color: var(--card);
+  color: var(--text);
 }
 
-/* Cabeçalhos e títulos */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text);
+/* Hover dos itens */
+.modal .item:hover, .dropdown .item:hover, .select-menu .item:hover {
+  background-color: var(--brand-2);
+  color: var(--bg);
 }
 
-/* Mensagens de status */
-.status-ok {
-    color: var(--ok);
-}
-.status-warn {
-    color: var(--warn);
-}
-.status-bad {
-    color: var(--bad);
-}
-
-/* Bordas e divisores */
+/* Outros ajustes pequenos */
 hr {
-    border: 1px solid var(--stroke);
+  border-color: var(--stroke);
 }
 
-/* Scrollbars personalizadas */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--stroke);
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--brand);
+.muted {
+  color: var(--muted);
 }
