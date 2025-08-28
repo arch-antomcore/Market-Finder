@@ -1,4 +1,3 @@
-// ====== ARRAY DE SERVIÇOS ======
 const services = [
   { id: 1, nome: "Corte de Cabelo", desc: "Corte moderno para todas as idades", categoria: "Beleza", preco: 50, img: "https://images.unsplash.com/photo-1599947442386-09f6a4c6d05a?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
   { id: 2, nome: "Aula de Yoga", desc: "Sessões relaxantes para iniciantes", categoria: "Saúde", preco: 35, img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" },
@@ -8,7 +7,6 @@ const services = [
   { id: 6, nome: "Manicure e Pedicure", desc: "Cuide das suas unhas com profissionais", categoria: "Beleza", preco: 60, img: "https://images.unsplash.com/photo-1572371326355-ef0c70f9b1f6?crop=entropy&cs=tinysrgb&fit=max&h=200&w=300" }
 ];
 
-// ====== ELEMENTOS ======
 const cardsContainer = document.querySelector(".cards");
 const filterSelect = document.querySelector("#category");
 const sortSelect = document.querySelector("#sort");
@@ -16,7 +14,6 @@ const searchInput = document.querySelector("#search");
 const countEl = document.querySelector("#count");
 const emptyEl = document.querySelector("#empty");
 
-// ====== FUNÇÃO DE RENDER ======
 function renderServices(list) {
   cardsContainer.innerHTML = "";
   countEl.textContent = `${list.length} serviço(s) encontrado(s)`;
@@ -34,7 +31,6 @@ function renderServices(list) {
     card.innerHTML = `
       <div class="thumb" style="background-image:url('${s.img}')">
         <div class="tag">${s.categoria}</div>
-        <div class="fav">&#9733;</div>
       </div>
       <div class="body">
         <div class="title">${s.nome}</div>
@@ -51,7 +47,6 @@ function renderServices(list) {
   });
 }
 
-// ====== FUNÇÃO DE FILTRO ======
 function applyFilters() {
   const categoria = filterSelect.value;
   const sortOrder = sortSelect.value;
@@ -73,13 +68,10 @@ function applyFilters() {
   renderServices(filtered);
 }
 
-// ====== EVENTOS ======
 filterSelect.addEventListener("change", applyFilters);
 sortSelect.addEventListener("change", applyFilters);
 searchInput.addEventListener("input", applyFilters);
 
-// Desativar submit do form
 document.querySelector("#searchForm").addEventListener("submit", e => e.preventDefault());
 
-// ====== INICIALIZAÇÃO ======
 renderServices(services);
